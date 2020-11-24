@@ -1,0 +1,822 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Ampelflow.master.cs" Inherits="AmpelflowWeb.Ampelflow" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<%--<meta charset="tis-620" />--%>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AMPS | AMPELFLOW</title>
+
+    <link rel="shortcut icon" href="../../Content/Icons/icon.ico" type="image/x-icon">
+
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <%-- Google Font --%>
+	<%--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">--%>
+	<link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+
+	<script src="../../Content/bower_components/jquery/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="../../Content/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<%--<link href="../../Content/plugins/bt4/css/bootstrap.min.css" rel="stylesheet" />--%>
+    
+	<link rel="stylesheet" href="../../Content/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../Content/bower_components/Ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="../../Content/plugins/iCheck/all.css">
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+	<link rel="stylesheet" href="../../Content/plugins/timepicker/bootstrap-timepicker.min.css">
+	<link rel="stylesheet" href="../../Content/bower_components/select2/dist/css/select2.min.css">
+
+	<link rel="stylesheet" href="../../Content/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="../../Content/dist/css/skins/_all-skins.min.css">
+    <%-- ----------------------------------------------------------------------------------------------------------------------------------- --%>
+	
+	<%-- ----------------------------------------------------------------------------------------------------------------------------------- --%>
+	<%--<link rel="stylesheet" href="Content/bower_components/morris.js/morris.css">--%>
+
+	<link rel="stylesheet" href="../../Content/bower_components/jvectormap/jquery-jvectormap.css">
+
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+	<link rel="stylesheet" href="../../Content/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+	<link rel="stylesheet" href="../../Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+	<link rel="stylesheet" href="../../Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.1/css/fixedColumns.dataTables.min.css"/>
+    <script src="../../Content/plugins/currency.min.js"></script>
+    <link href="../../Content/alertifyjs/css/alertify.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/alertify.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/alertify.rtl.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/alertify.rtl.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/default.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/default.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/default.rtl.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/default.rtl.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/semantic.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/semantic.min.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/semantic.rtl.css" rel="stylesheet" />
+    <link href="../../Content/alertifyjs/css/themes/semantic.rtl.min.css" rel="stylesheet" />
+    <link href="../../Content/plugins/dataTables.checkboxes.css" rel="stylesheet" />
+
+
+
+	<!-- Google Font -->
+	
+
+	<style>
+		/*.skin-blue-light .main-header .navbar {
+			background-color: #3cb6bc;
+		}
+
+		.skin-blue-light .main-header .logo {
+			background-color: #3cb6bc;
+			color: #fff;
+			border-bottom: 0 solid transparent;
+		}*/
+
+
+	    .txtAppName{
+			font-family: 'Athiti', sans-serif;
+			font-size: 24px;
+			font-weight: normal;
+		}
+
+		.txtLabel {
+			font-family: 'Athiti', sans-serif;
+			font-size: 15px;
+			font-weight: normal;
+		}
+
+		
+		.txtHeader {
+			font-family: 'Athiti', sans-serif;
+			font-size: 14px;
+			font-weight: normal;
+			font-size:22px;
+			font-weight:700;
+
+		}
+		.txtSecondHeader {
+			font-family: 'Athiti', sans-serif;
+			font-size: 18px;
+			font-weight: normal;
+		}
+
+
+
+
+		.table-condensed {
+			font-size: 12px;
+		}
+
+		
+		.thumb {
+			height: 100px;
+			border: 1px solid black;
+			margin: 10px;
+		}
+
+	    th, td {
+	        white-space: nowrap;
+	    }
+
+	    div.dataTables_wrapper {
+	        width: 100%;
+	        margin: 0 auto;
+	    }
+
+	    .circle-img {
+	        width: 250px;
+	        height: 250px;
+	        overflow: hidden;
+	    }
+
+	    .circle-img img {
+	         height: 100%;
+	         transform: translateX(-50%);
+	         margin-left: 50%;
+	     }
+
+
+            .is-hide {
+                display: none;
+            }
+
+			body {
+            background: #ececec;
+        }
+
+        /*Hidden class for adding and removing*/
+        .lds-dual-ring.hidden {
+            display: none;
+        }
+
+        /*Add an overlay to the entire page blocking any further presses to buttons or other elements.*/
+        .overlay {
+            position: absolute;
+            /* top: 100;
+            left: 100; */
+            width: 100%;
+            height: 100%;
+            position: center;
+            background: #d9e4ddc2;
+            z-index: 999;
+            opacity: 0.5;
+            transition: all 0.9s;
+            /* background-color: #d9e4dd transparent; */
+        }
+
+        /*Spinner Styles*/
+        .lds-dual-ring.tblspinner {
+            display: inline-block;
+            
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 5% auto;
+            border-radius: 50%;
+            border: 6px solid rgb(71, 138, 238);
+            border-color: rgb(68, 141, 224) transparent rgb(71, 183, 235) transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+	
+
+
+	</style>
+    <script>
+
+
+        $(document).ready(function () {
+
+
+			$('#masterScreen').fadeIn(300);
+
+
+        })
+
+
+    </script>
+
+</head>
+
+<body onselect="return true" onload="screenZoom()" class="hold-transition skin-blue-light sidebar-mini fixed " id="masterScreen" style="display:none">
+	<div class="loader">
+		<img src="../../Content/images/loading.gif" alt="Loading..." />
+	</div>
+
+	<div id="dvMain" runat="server">
+		<div class="wrapper">
+			<header class="main-header">
+				<!-- Logo -->
+				<a href="../../Default.aspx" class="logo">
+					<span class="logo-mini"><b>A</b>MP</span>
+					<span class="logo-lg txtAppName"><b>A</b>MPELFLOW</span>
+				</a>
+				<nav class="navbar navbar-static-top">
+					<!-- Sidebar toggle button-->
+					<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="../../Content/dist/img/User_96px.png" class="user-image" alt="User Image" width="160" />
+									<span class="hidden-xs txtLabel">
+										<label id="label2"></label>
+										<%= strFullName %></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="user-header txtLabel">
+										<img src="../../Content/dist/img/User_96px.png" class="img-circle" alt="User Image" width="160" />
+										<p>
+											<%= strFullName %>											
+                                            <small><%= Session["sEmpBranchName"] %></small>
+                                            <small>Department of : <%= strDept %></small>
+										</p>
+									</li>
+
+									<!-- Menu Footer-->
+									<li class="user-footer" runat="server">
+                                        <form id="SignOut">
+											<div class="pull-left">
+											<a href="../../Content/pages/users/changepassword" class="btn btn-default btn-flat txtLabel">Change Password</a>
+										</div>
+										<div class="pull-right">
+											<a href="../../SignIn.aspx" runat="server" id="btnONSignOut"  onserverclick="btnLogout_Click" class="btn btn-default btn-flat txtLabel">Sign out</a>
+										</div>
+                                        </form>
+										
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+				</nav>
+			</header>
+
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar">
+				<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+
+					<!-- sidebar menu: : style can be found in sidebar.less -->
+					<ul class="sidebar-menu" data-widget="tree">
+						<li class="header" style="text-align: center">
+							
+								<img src="../../Content/images/Logo-ampel-Big.png" class="" alt="User Image" width="120" /></li>
+							
+							
+
+
+						<li id="mnuDashboard" runat="server" class="<%= strActiveDashboard.ToString() %>" style="border-top: 1px solid #dddddd;">
+							<%--<a href="Content/pages/dashboard?opt=dashboard">--%>
+							<a href="/Default.aspx">
+								<i class="fa fa-dashboard"></i>
+								<span class="txtLabel <%= strTextRedDashboard.ToString() %>">DashBoard</span>
+							</a>
+						</li>
+
+						<li class="<%= strActEnterprise.ToString() %> treeview" style="border-top: 1px solid #dddddd;">
+							<a href="#">
+								<i class="fa fa-gear treeview"></i><span class="txtLabel">Enterprise Master</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+
+                                <%= strMenuEnterprise %>      
+                                
+							</ul>
+						</li>
+
+						<li class="<%= strActTrans.ToString() %> treeview" style="border-top: 1px solid #dddddd;">
+							<a href="#">
+								<i class="fa fa-group treeview"></i><span class="txtLabel">Transaction Entry</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+
+                                  <%= strMenuTransaction %>
+
+							</ul>
+						</li>
+
+						<li class="<%= strActReport.ToString() %> treeview" style="border-top: 1px solid #dddddd;">
+							<a href="#">
+								<i class="fa fa-table treeview"></i><span class="txtLabel">Reporting</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+                                 <%= strMenuReporting %>
+                                
+							</ul>
+						</li>
+
+
+						<li class="<%= strActHelp.ToString() %> treeview" style="border-top: 1px solid #dddddd;">
+							<a href="Content/pages/help/salespec_guide.pdf" target="_blank">
+								<i class="fa fa-question-circle"  style="color: darkblue;"></i>
+								<span class="txtLabel">Help</span>
+                                <span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+                            <ul class="treeview-menu">
+
+                                <%= strMenuHelp %>
+
+								<li id="Li5" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="#"><i class="fa fa-angle-right <%= strTextWeeklyReport.ToString() %>"></i><span class="txtLabel <%= strTextWeeklyReport.ToString() %>">User Guide</span></a>
+								</li>
+								<li id="Li6" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="#"><i class="fa fa-angle-right <%= strTextProjectCenter.ToString() %>"></i><span class="txtLabel <%= strTextProjectCenter.ToString() %>">Change Password</span></a>
+								</li>
+								<li id="Li7" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="#"><i class="fa fa-angle-right <%= strTextRequestForm.ToString() %>"></i><span class="txtLabel <%= strTextRequestForm.ToString() %>">Error Message</span></a>
+								</li>
+								
+							</ul>
+						</li>
+
+
+						<%--<li style="border-top: 1px solid #dddddd;"></li>--%>
+
+                        <li class="<%= strActSetting.ToString() %> treeview" style="border-top: 1px solid #dddddd;">
+							<a href="#">
+								<i class="fa fa-gears treeview"  style="color: green;"></i><span class="txtLabel">Setting</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+
+                                  <%= strMenuSetting %>
+
+								<%--<li id="Li1" runat="server" visible="true" class="<%= strActSetting.ToString() %> ">
+									<a href="createmenupages.aspx?opt=stt"><i class="fa fa-angle-right"></i><span class="txtLabel">Create New Page</span></a>
+								</li>
+								<li id="Li2" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="usermanagement.aspx?opt=stt"><i class="fa fa-angle-right <%= strTextProjectCenter.ToString() %>"></i><span class="txtLabel <%= strTextProjectCenter.ToString() %>">Users Management</span></a>
+								</li>
+								<li id="Li3" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="Content/pages/trans/apprequest-new?opt=reqf"><i class="fa fa-angle-right <%= strTextRequestForm.ToString() %>"></i><span class="txtLabel <%= strTextRequestForm.ToString() %>">Permission</span></a>
+								</li>
+								<li id="Li4" runat="server" visible="true" class="<%= strActiveTransaction.ToString() %> ">
+									<a href="Content/pages/trans/apprequest?opt=arc"><i class="fa fa-angle-right <%= strTextArchitectCenter.ToString() %>"></i><span class="txtLabel <%= strTextArchitectCenter.ToString() %>">System Themes</span></a>
+								</li>	--%>							
+							</ul>
+						</li>
+
+						<li style="border-top: 1px solid #dddddd;">
+							<a href="../../Signin.aspx">
+								<i class="fa fa-power-off" style="color: red;"></i>
+								<span class="txtLabel"><b>Sign Out ...</b></span>
+							</a>
+						</li>
+						<li style="border-top: 1px solid #dddddd;"></li>
+					</ul>
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<form id="form1" runat="server">
+					<div>
+						<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+							
+
+
+						</asp:ContentPlaceHolder>
+					</div>
+				</form>
+			</div>
+			<div class="control-sidebar-bg"></div>
+		</div>
+		<div id="dvLoading" runat="server" class="loadingMessageFrame" style="height: 270px; display: none;">
+			<table style="height: 100%; width: 100%; table-layout: fixed;">
+				<tr>
+					<td style="height: 100%;">
+						<asp:Label ID="lblLoadingMessage" runat="server" Text="Loading..." CssClass="Loading_Message"></asp:Label>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<!-- ./wrapper -->
+		<!-- jQuery 3 -->
+		<%--<script src="../../Content/bower_components/jquery/dist/jquery.min.js"></script>--%>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="../../Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
+		<script>
+			$.widget.bridge('uibutton', $.ui.button);
+		</script>
+		<script src="../../Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../Content/bower_components/select2/dist/js/select2.full.min.js"></script>
+		<script src="../../Content/bower_components/raphael/raphael.min.js"></script>
+		<script src="../../Content/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+		<script src="../../Content/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+		<script src="../../Content/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+		<script src="../../Content/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+		<script src="../../Content/bower_components/moment/min/moment.min.js"></script>
+		<script src="../../Content/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<script src="../../Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+		<script src="../../Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+		<script src="../../Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+		<script src="../../Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+		<script src="../../Content/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="../../Content/bower_components/fastclick/lib/fastclick.js"></script>
+		<script src="../../Content/dist/js/adminlte.min.js"></script>
+		<script src="../../Content/dist/js/demo.js"></script>
+		<script src="../../Content/plugins/input-mask/jquery.inputmask.js"></script>
+		<script src="../../Content/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+		<script src="../../Content/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+		<script src="../../Content/bower_components/moment/min/moment.min.js"></script>
+		<script src="../../Content/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<script src="../../Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+		<script src="../../Content/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+		<script src="../../Content/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+		<script src="../../Content/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="../../Content/plugins/iCheck/icheck.min.js"></script>
+        <script src="../../Content/alertifyjs/alertify.js"></script>
+        <script src="../../Content/alertifyjs/alertify.min.js"></script>
+        <script src="../../Content/plugins/dataTables.checkboxes.min.js"></script>
+		<%--<script src="Content/Content/dist/2.7.3/Chart.bundle.js"></script>--%>
+		<script src="../../Content/bower_components/Chart.js/Chart.js"></script>
+        <script src="../../Content/plugins/numeral.js"></script>
+		
+		<%-- sweetAlert --%>
+        <%--<link href="../../Content/plugins/sweetalert2/package/dist/sweetalert2.min.css" rel="stylesheet" />--%>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <%--<script src="../../Content/plugins/sweetalert2/package/dist/sweetalert2.min.js"></script>--%>
+        <%--  --%>
+            
+        <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.1/js/dataTables.fixedColumns.min.js"></script>
+
+		<script>
+			window.addEventListener("load", function () {
+				const loader = document.querySelector(".loader");
+				loader.className += " hidden"; // class "loader hidden"
+			});
+		</script>
+
+
+		<script>
+
+
+			$(function () {
+                $('#tblMenusAll').DataTable({
+                    'paging':true,
+                    'iDisplayLength': 10,
+                    'autoWidth': true,
+                    //'scrollY': "4000px",
+                    'scrollX': false,
+                    'scrollCollapse': true,
+                    'ordering': false
+
+                    //'fixedColumns': { 'leftColumns': 6 }
+                })
+
+
+				$('#example2').DataTable({
+					'paging': true,
+					'lengthChange': true,
+					'searching': true,
+					'ordering': true,
+					'info': true,
+					'autoWidth': false
+                })
+
+                $('#tbluser').DataTable({
+					'paging': true,
+					'lengthChange': true,
+					'searching': true,
+					'ordering': true,
+					'info': true,
+					'autoWidth': false
+                })
+
+                $('#tblmember').DataTable({
+					'paging': true,
+					'lengthChange': true,
+					'searching': true,
+					'ordering': true,
+					'info': true,
+					'autoWidth': false
+                })
+
+			})
+        </script>
+
+		<script>
+			$(function () {
+				//PromotionProduct.aspx
+				$('#tblMainPurchase').DataTable({
+					'paging': true,
+					'iDisplayLength': 10,
+					'autoWidth': true,
+					'scrollX': false,
+					'scrollCollapse': true,
+					'ordering': false,
+                    'columnDefs': [{
+                            
+                        }],
+                    'select': {'style': 'multi'},
+                    'order': [[0, 'asc']]
+					
+				})
+
+                $('#tblViewListitem').DataTable({
+					'paging': true,
+					'iDisplayLength': 10,
+					'autoWidth': true,
+					'scrollX': false,
+					'scrollCollapse': true,
+					'ordering': false
+				})
+
+                $('#tblMainPurchaserpt').DataTable({
+					'paging': true,
+					'iDisplayLength': 10,
+					'autoWidth': true,
+					'scrollX': false,
+					'scrollCollapse': true,
+					'ordering': true
+					
+				})
+                
+                $('#itemWithoutRpt').DataTable({
+					'paging': true,
+                    'stateSave': true,
+                    'iDisplayLength': 10,
+                    'autoWidth': true,
+                    'scrollX': false,
+                    'scrollCollapse': true,
+                    'ordering': false
+
+				})
+                $('#allitemRpt').DataTable({
+					'paging': true,
+                    'pagingType': 'full',
+                    'iDisplayLength': 10,
+                    'autoWidth': true,
+                    'scrollX': false,
+                    'scrollCollapse': true,
+                    'ordering': false
+
+				})
+
+                $('#tblhistoryData').DataTable({
+                    'paging': true,
+                    'pagingType': 'full',
+                    'iDisplayLength': 10,
+                    'autoWidth': true,
+                    'scrollX': false,
+                    'scrollCollapse': true,
+                    'ordering': false
+
+                })
+
+			})
+        </script>
+
+		<script>
+				$(function () {
+					//Initialize Select2 Elements
+					function formatResultMulti(data) {
+						var city = $(data.element).data('city');
+						var classAttr = $(data.element).attr('class');
+						var hasClass = typeof classAttr != 'undefined';
+						classAttr = hasClass ? ' ' + classAttr : '';
+
+						var $result = $(
+							'<div class="row">' +
+							'<div class="col-md-6 col-xs-6' + classAttr + '">' + data.text + '</div>' +
+							'<div class="col-md-6 col-xs-6' + classAttr + '">' + city + '</div>' +
+							'</div>'
+						);
+						return $result;
+					}
+
+					$('.select2').select2({
+						width: '100%',
+						formatResult: formatResultMulti
+					})
+
+					//Datemask dd/mm/yyyy
+					$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+					//Datemask2 mm/dd/yyyy
+					$('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+					//Money Euro
+					$('[data-mask]').inputmask()
+
+					//Date range picker
+					$('#reservation').daterangepicker()
+					//Date range picker with time picker
+					$('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+
+					//$('#dateStartTime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+					//$('#dateStartTime').daterangepicker()
+
+					//Date range as a button
+					$('#daterange-btn').daterangepicker(
+						{
+							ranges: {
+								'Today': [moment(), moment()],
+								'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+								'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+								'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+								'This Month': [moment().startOf('month'), moment().endOf('month')],
+								'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+							},
+							startDate: moment().subtract(29, 'days'),
+							endDate: moment()
+						},
+						function (start, end) {
+							$('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+						}
+					)
+					//Date picker
+					$('#datepicker').datepicker({
+						autoclose: true
+					})
+					//Date picker
+					$('#addIndentDatepicker').datepicker({
+						autoclose: true
+					})
+					//iCheck for checkbox and radio inputs
+					$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+						checkboxClass: 'icheckbox_minimal-blue',
+						radioClass: 'iradio_minimal-blue'
+					})
+					//Red color scheme for iCheck
+					$('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+						checkboxClass: 'icheckbox_minimal-red',
+						radioClass: 'iradio_minimal-red'
+					})
+					//Flat red color scheme for iCheck
+					$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+						checkboxClass: 'icheckbox_flat-green',
+						radioClass: 'iradio_flat-green'
+					})
+					//Colorpicker
+					$('.my-colorpicker1').colorpicker()
+					//color picker with addon
+					$('.my-colorpicker2').colorpicker()
+					//Timepicker
+					$('.timepicker').timepicker({
+						showInputs: false
+					})
+					$('select:not(.normal)').each(function () {
+						$(this).select2({
+							dropdownParent: $(this).parent()
+						});
+					});
+					function openModal() {
+						function openModal() { $('#myModal').modal({ show: true }); }
+					}
+				})
+				$('#datepickertrans').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+
+				$('#datepickerdelivery').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+				$('#datepickerstart').datepicker({
+					autoclose: true,
+					changeMonth: true,
+					changeYear: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+				$('#datepickerend').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+				$('#datevisit').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+				$('#datebirthday').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+				 $('#datebirthdayedit').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+				});
+
+			
+			 $('#updatepickerdelivery').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+			 });
+			 $('#updatevisit').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+			 });
+			$('#datedelivery').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+			});
+			$('#datefollowing').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: 'yyyy-mm-dd'
+			});
+
+			
+			//PromotionPreroid.aspx
+            $('#sDate').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+				//format: 'yyyy-mm-dd'
+                format: 'yyyy-mm-dd'
+			});
+
+            $('#eDate').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                //format: 'yyyy-mm-dd'
+                format: 'yyyy-mm-dd'
+            });
+
+        </script>
+
+		<script type="text/javascript">
+            var spinnerVisible = false;
+            function showProgress() {
+                if (!spinnerVisible) {
+                    $("div#spinner").fadeIn("fast");
+                    spinnerVisible = true;
+                }
+            };
+            function hideProgress() {
+                if (spinnerVisible) {
+                    var spinner = $("div#spinner");
+                    spinner.stop();
+                    spinner.fadeOut("fast");
+                    spinnerVisible = false;
+                }
+            };
+
+            function screenZoom() {
+                var x = screen.width;
+                if (x <= 1366) {
+                    //document.body.style.zoom = "80%"
+                    window.parent.document.body.style.zoom = 0.9;
+                    //myIframeZoom();             
+                }
+            };
+
+        </script>
+	</div>
+</body>
+</html>
